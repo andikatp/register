@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:register_dicoding/presentation/pages/homepage/home_page.dart';
-import 'package:register_dicoding/presentation/pages/register/cubit/register_cubit.dart';
 import 'package:register_dicoding/presentation/pages/register/register_page.dart';
 
 void main() {
-  runApp(BlocProvider(
-    create: (context) => RegisterCubit(),
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +17,7 @@ class MyApp extends StatelessWidget {
         GoRoute(
           path: '/',
           builder: (BuildContext context, GoRouterState state) {
-            return const RegisterPage();
+            return const RegisterPageWrapperProvider();
           },
           routes: <RouteBase>[
             GoRoute(

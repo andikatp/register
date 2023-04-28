@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:register_dicoding/presentation/pages/register/cubit/register_cubit.dart';
 import 'package:register_dicoding/presentation/pages/register/widgets/custom_button.dart';
 import 'package:register_dicoding/presentation/pages/register/widgets/custom_textfield.dart';
+
+class RegisterPageWrapperProvider extends StatelessWidget {
+  const RegisterPageWrapperProvider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => RegisterCubit(),
+      child: const RegisterPage(),
+    );
+  }
+}
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -14,6 +28,14 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
