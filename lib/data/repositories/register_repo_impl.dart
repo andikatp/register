@@ -6,7 +6,8 @@ import 'package:dartz/dartz.dart';
 import 'package:register_dicoding/domain/repositories/register_repo.dart';
 
 class RegisterRepoImpl implements RegisterRepo {
-  final RegisterDataSource registerDataSource = RegisterDataSourceImpl();
+  final RegisterDataSource registerDataSource;
+  RegisterRepoImpl({required this.registerDataSource});
 
   @override
   Future<Either<Failure, RegisterEntity>> registerFromApi(

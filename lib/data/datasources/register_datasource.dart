@@ -11,10 +11,13 @@ abstract class RegisterDataSource {
 }
 
 class RegisterDataSourceImpl implements RegisterDataSource {
+  final http.Client client;
+  const RegisterDataSourceImpl({required this.client});
+
   @override
   Future<RegisterModel> registerAccountFromDatasource(
       String name, String email, String password) async {
-    final response = await http.post(
+    final response = await client.post(
         Uri.parse('https://story-api.dicoding.dev/v1/register'),
         body: {'name': name, 'email': email, 'password': password});
     final decode = jsonDecode(response.body);

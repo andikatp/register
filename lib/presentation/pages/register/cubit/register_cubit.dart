@@ -6,9 +6,8 @@ import 'package:register_dicoding/domain/usecases/register_usecase.dart';
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit() : super(RegisterInitial());
-
-  final RegisterUsecase registerUsecase = RegisterUsecase();
+  final RegisterUsecase registerUsecase;
+  RegisterCubit({required this.registerUsecase}) : super(RegisterInitial());
 
   void onRegisterPressedEvent(
       String name, String email, String password) async {

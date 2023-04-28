@@ -4,13 +4,15 @@ import 'package:register_dicoding/presentation/pages/register/cubit/register_cub
 import 'package:register_dicoding/presentation/pages/register/widgets/custom_button.dart';
 import 'package:register_dicoding/presentation/pages/register/widgets/custom_textfield.dart';
 
+import '../../../injection.dart';
+
 class RegisterPageWrapperProvider extends StatelessWidget {
   const RegisterPageWrapperProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterCubit(),
+      create: (context) => sl<RegisterCubit>(),
       child: const RegisterPage(),
     );
   }
