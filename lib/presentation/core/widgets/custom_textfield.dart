@@ -16,6 +16,7 @@ class CustomTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         labelText: labelText,
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:register_dicoding/presentation/pages/auth/auth_page.dart';
 import 'package:register_dicoding/presentation/pages/homepage/home_page.dart';
-import 'package:register_dicoding/presentation/pages/register/register_page.dart';
 import 'injection.dart' as di;
 
 void main() async {
@@ -19,17 +19,16 @@ class MyApp extends StatelessWidget {
       routes: <RouteBase>[
         GoRoute(
           path: '/',
+          name: 'auth',
           builder: (BuildContext context, GoRouterState state) {
-            return const RegisterPageWrapperProvider();
+            return const AuthPageWrapperProvider();
           },
-          routes: <RouteBase>[
-            GoRoute(
-              path: 'homepage',
-              builder: (BuildContext context, GoRouterState state) {
-                return const HomePage();
-              },
-            ),
-          ],
+        ),
+        GoRoute(
+          path: '/homepage',
+          name: 'homepage',
+          builder: (BuildContext context, GoRouterState state) =>
+              const HomePage(),
         ),
       ],
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,7 +13,11 @@ class HomePage extends StatelessWidget {
           children: [
             const Text('Dah Login ni Ges!'),
             const SizedBox(height: 20),
-            ElevatedButton(onPressed: () {}, child: const Text('Logout!')),
+            ElevatedButton(
+                onPressed: () {
+                  context.goNamed('auth');
+                },
+                child: const Text('Logout!')),
           ],
         ),
       ),
